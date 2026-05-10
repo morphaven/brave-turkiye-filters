@@ -1,0 +1,54 @@
+name: Reklam / Popup bildir
+description: Bir Türk sitesinde rahatsız edici reklam, popup veya katman gördün mü? Buradan bildir.
+title: "[reklam] site.com — kısa açıklama"
+labels: ["reklam-bildirimi"]
+body:
+  - type: input
+    id: site
+    attributes:
+      label: Site URL'si
+      description: Reklamın görüldüğü sayfanın adresi
+      placeholder: https://r10.net/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: aciklama
+    attributes:
+      label: Reklam ne?
+      description: Kısaca anlat — sticky banner mı, popup mı, ana içeriğin yanındaki kutu mu?
+      placeholder: |
+        Sağ tarafta açılan "Reklam" başlıklı iyzico paneli.
+        Kapatınca tekrar açılıyor.
+    validations:
+      required: true
+
+  - type: textarea
+    id: html
+    attributes:
+      label: Reklamın HTML'i (varsa)
+      description: |
+        Çok yardımcı olur! Sağ tık → İncele → ilgili `<div>` üzerinde sağ tık → Copy → Copy outerHTML.
+        Yapıştırırken aşağıdaki üç tırnak arasına koy.
+      value: |
+        ```html
+
+        ```
+    validations:
+      required: false
+
+  - type: textarea
+    id: ekran
+    attributes:
+      label: Ekran görüntüsü (varsa)
+      description: Bu kutuya görsel sürükleyip bırakabilirsin.
+    validations:
+      required: false
+
+  - type: input
+    id: tarayici
+    attributes:
+      label: Tarayıcı / sürüm
+      placeholder: Brave 1.65.x — Linux
+    validations:
+      required: false

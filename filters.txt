@@ -1,0 +1,24 @@
+[Adblock Plus 2.0]
+! Title: Brave Türkiye Filtreleri
+! Description: Türk web sitelerindeki rahatsız edici reklamlar, popup'lar, "uygulamayı indir" katmanları ve diğer can sıkıcı öğeler için topluluk filtre listesi.
+! Homepage: https://github.com/morphaven/brave-turkiye-filters
+! Expires: 1 day
+! Version: 1.0.0
+! License: https://github.com/morphaven/brave-turkiye-filters/blob/main/LICENSE
+! Maintainer: morphaven
+!
+! ============================================================
+! Bu liste Brave Browser ve uBlock Origin ile uyumludur.
+! Eklemek için: brave://settings/shields/filters
+!   → "Özel filtre listesi ekle" → bu dosyanın raw URL'sini yapıştır.
+! ============================================================
+!
+!
+! ====== r10.net ======
+!
+! iyzico reklam paneli (sağda açılan "Reklam" başlıklı kutu)
+! Not: Random class adları (örn. io95901de9ed8ebd903a) kullanıldığı için
+!      sabit kalan iyzico partner linkini ve görseli hedefliyoruz.
+r10.net##a[href*="iyzico.com/partner"]
+r10.net##img[src*="cdn.r10.net/editor/161257"]
+r10.net##div.rPanel:has(a[href*="iyzico.com/partner"])
