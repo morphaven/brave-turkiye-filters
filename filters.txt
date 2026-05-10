@@ -3,7 +3,7 @@
 ! Description: Türk web sitelerindeki rahatsız edici reklamlar, popup'lar, "uygulamayı indir" katmanları ve diğer can sıkıcı öğeler için topluluk filtre listesi.
 ! Homepage: https://github.com/morphaven/brave-turkiye-filters
 ! Expires: 1 day
-! Version: 1.0.0
+! Version: 1.0.1
 ! License: https://github.com/morphaven/brave-turkiye-filters/blob/main/LICENSE
 ! Maintainer: morphaven
 !
@@ -20,5 +20,19 @@
 ! Not: Random class adları (örn. io95901de9ed8ebd903a) kullanıldığı için
 !      sabit kalan iyzico partner linkini ve görseli hedefliyoruz.
 r10.net##a[href*="iyzico.com/partner"]
-r10.net##img[src*="cdn.r10.net/editor/161257"]
 r10.net##div.rPanel:has(a[href*="iyzico.com/partner"])
+!
+! Sponsorlu kategori başlıkları (kategori sayfalarının üstündeki sponsor banner'ı)
+! Örn. "Adsense nedir?" başlığının yanındaki burtinet/gofik sponsor logosu.
+! Sadece sponsor linki/logosu gizlenir — kategori açıklama metni okunabilir kalır.
+r10.net##.ozelKategori a
+r10.net##.ozelKategori_link
+!
+! r10'un tüm sponsor linkleri standart "utm_source=R10_Kampanya" tag'i kullanır.
+! Bu tek satır iyzico, burtinet ve gelecekteki diğer r10 sponsorlarını yakalar.
+r10.net##a[href*="utm_source=R10_Kampanya"]
+!
+! Editör hesabı 161257 r10'un sponsor görsellerini barındırıyor görünüyor
+! (iyzico panel görseli + gofik sponsor logosu aynı yolu kullanıyor).
+! UTM filtresi link'i yakalasa bile, görseli de ayrıca öldürmek garanti olsun.
+r10.net##img[src*="cdn.r10.net/editor/161257"]
