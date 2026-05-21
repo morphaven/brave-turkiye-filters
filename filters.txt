@@ -3,7 +3,7 @@
 ! Description: Türk web sitelerindeki rahatsız edici reklamlar, popup'lar, "uygulamayı indir" katmanları ve diğer can sıkıcı öğeler için topluluk filtre listesi.
 ! Homepage: https://github.com/morphaven/brave-turkiye-filters
 ! Expires: 1 day
-! Version: 1.0.1
+! Version: 1.0.2
 ! License: https://github.com/morphaven/brave-turkiye-filters/blob/main/LICENSE
 ! Maintainer: morphaven
 !
@@ -36,3 +36,22 @@ r10.net##a[href*="utm_source=R10_Kampanya"]
 ! (iyzico panel görseli + gofik sponsor logosu aynı yolu kullanıyor).
 ! UTM filtresi link'i yakalasa bile, görseli de ayrıca öldürmek garanti olsun.
 r10.net##img[src*="cdn.r10.net/editor/161257"]
+!
+!
+! ====== sahibinden.com ======
+!
+! Üst masthead fallback banner (970x250 — Ziraat Katılım, Gemius redirect vb.)
+sahibinden.com###masthead-fallback-banner
+!
+! Google Ads (GPT) reklam slot'ları — sahibinden detay/liste sayfalarındaki
+! "Reklam" yazılı 970x250 iframe'ler. div-gpt-ad- prefix'i Google'ın standardı.
+! Sondaki numara değişken ama prefix sabit kalır.
+sahibinden.com##div[id^="div-gpt-ad-"]
+!
+! İçinde Google reklam barındıran .uiBoxContainer'ı da götür ki boş kutu/tablo kalmasın.
+! Not: .uiBoxContainer sahibinden'de jenerik bir wrapper'dır, :has() ile sadece
+!      içinde GPT reklamı olanları hedefliyoruz — diğer kutular dokunulmaz.
+sahibinden.com##.uiBoxContainer:has(div[id^="div-gpt-ad-"])
+!
+! Gemius reklam takip/yönlendirme servisi (sahibinden masthead linki bunu kullanıyor)
+||gdetr.hit.gemius.pl^
